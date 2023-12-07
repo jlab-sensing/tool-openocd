@@ -47,4 +47,30 @@ ln -s [path to openocd] bin/openocd
 
 ### Windows
 
-[TODO] Add direction on path to copy from the STM32CubeIDE
+The STM32 IDE uses OpenOCD to communicate with STM debuggers, so the STM32 generates an ```openocd.exe``` executable that can be used for PlatformIO.
+
+Navigate to the STM32 generated OpenOCD file.
+
+``` 
+C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.openocd.win32_2.3.0.202305091550\tools\bin\openocd.exe
+```
+
+If you cannot locate the openocd executable, search for ```openocd.exe``` on your local machine.
+
+You will need to create a symbolic link between the STM32 executable and your ```~\.platformio\packages\tool-openocd\bin```.
+
+Navigate to the location of your ```tool-openocd``` installation.
+
+```
+cd C:\Users\user\.platformio\packages\tool-openocd\bin
+```
+
+Create a symbolic link between your openocd.exe and your bin folder.
+
+```
+mklink "openocd.exe" "C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.openocd.win32_2.3.0.202305091550\tools\bin\openocd.exe"
+```
+
+You should see a linked copy of your OpenOCD executable in C:\Users\user\.platformio\packages\tool-openocd\bin.
+
+You will now need to add both ```"C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.openocd.win32_2.3.0.202305091550\tools\bin``` and ```C:\Users\user\.platformio\packages\tool-openocd\bin``` to your system's PATH. Make sure to add the folders and not just the executables, just adding the executables will result in dependency errors. 
