@@ -74,3 +74,5 @@ mklink "openocd.exe" "C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm3
 You should see a linked copy of your OpenOCD executable in C:\Users\user\.platformio\packages\tool-openocd\bin.
 
 You will now need to add both ```"C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.openocd.win32_2.3.0.202305091550\tools\bin``` and ```C:\Users\user\.platformio\packages\tool-openocd\bin``` to your system's PATH. Make sure to add the folders and not just the executables, just adding the executables will result in dependency errors. 
+
+Make sure you run the terminal (VS Code's terminal in my case) with adminstrator privileges. And tool_openocd.py is included in the project.
